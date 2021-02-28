@@ -12,10 +12,10 @@ const checkUser = require('../middlewares/checkUser');
 const loginValidator = require('../validations/loginValidator');
 
 router.get('/register',register);
-router.post('/register',uploadImages.any(), processRegister);
+router.post('/register',uploadImages.any(),registerValidator, processRegister);
 
 router.get('/login',login);
-router.post('/login',processLogin);
+router.post('/login',loginValidator, processLogin);
 
 router.get('/profile',checkUser ,profile);
 

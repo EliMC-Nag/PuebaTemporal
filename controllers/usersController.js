@@ -18,7 +18,7 @@ module.exports = {
                 errores : errores.errors
             })
         }else{
-            const {firstName, lastName,email, password,category,image} = req.body;
+            const {firstName, lastName, email, password, category, image} = req.body;
         
             let lastID = 0;
             users_db.forEach(user => {
@@ -59,7 +59,7 @@ module.exports = {
                 errores : errores.errors
             })
         }else{
-            const {email,password, recordar} = req.body;
+            const {email, password, recordar} = req.body;
 
             let result = users_db.find(user => user.email === email);
 
@@ -78,7 +78,7 @@ module.exports = {
                         })
                     }
 
-                    return res.redirect('users/profile')
+                    return res.redirect('/users/profile')
                 }
             }
             return res.render('users/login',{

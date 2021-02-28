@@ -15,7 +15,7 @@ const indexRouter = require('./routes/indexRouter');
 const productRouter = require('./routes/productsRouter');
 const adminRouter = require('./routes/adminRouter');
 const usersRouter = require('./routes/usersRouter');
-const cookieCheck = require('./middlewares/cookieCheck');
+
 
 
 
@@ -35,7 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(methodOverride('_method'));
 app.use(session({
-    secret :"El proyecto",
+    secret :"proyectoacampada",
     resave :true,
     saveUninitialized: true
 }));
