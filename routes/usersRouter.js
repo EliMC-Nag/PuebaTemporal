@@ -1,0 +1,26 @@
+/* variables */
+var express = require('express');
+var router = express.Router();
+
+const { register, processRegister, login, processLogin, profile, fatality, eliminar } = require('../controllers/usersController');
+
+
+/* middlewares */
+const uploadImages = require('../middlewares/uploadImages');
+const registerValidator = require('../validations/registerValidator');
+const checkUser = require('../middlewares/checkUser');
+const loginValidator = require('../validations/loginValidator');
+
+router.get('/register',register);
+router.post('/register',uploadImages.any(), processRegister);
+
+router.get('/login',login);
+router.post('/login',processLogin);
+
+router.get('/profile',checkUser ,profile);
+
+router.delete('/delete/:id', eliminar);
+
+router.get('/logout',fatality);
+
+module.exports = router;
